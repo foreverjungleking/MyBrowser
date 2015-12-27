@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet var webView: UIWebView!
     
     @IBOutlet var SearchBar: UISearchBar!
+
+    @IBOutlet var ActInd: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -45,6 +48,15 @@ class ViewController: UIViewController {
         
     }
     
-
+    func webViewDidStartLoad(_: UIWebView)
+    {
+        ActInd.startAnimating()
+    }
+    
+    func webViewDidFinishLoad(_: UIWebView)
+    {
+        ActInd.stopAnimating()
+    }
+    
 }
 
