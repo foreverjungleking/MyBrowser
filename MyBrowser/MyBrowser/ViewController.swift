@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var webView: UIWebView!
     
+    @IBOutlet var SearchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,13 +22,29 @@ class ViewController: UIViewController {
         let request = NSURLRequest(URL: url!)
         
         webView.loadRequest(request)
+        
+        SearchBar.text = "http://"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func searchBarSearchButtonClicked(searchbar: UISearchBar)
+    {
+        
+        searchbar.resignFirstResponder()
+        
+        let text = SearchBar.text
+        let url = NSURL(string:text!)
+        let request = NSURLRequest(URL:url!)
+        
+        webView.loadRequest(request)
+        
+        
+    }
+    
 
 }
 
